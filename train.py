@@ -52,7 +52,7 @@ train_datagen = ImageDataGenerator(preprocessing_function=preprocess_input_vgg,
                                    horizontal_flip=True,
                                    fill_mode='nearest')
 
-train_generator = train_datagen.flow_from_directory(directory='./data/train',
+train_generator = train_datagen.flow_from_directory(directory='/scratch/cluster/vsub/ssayed/data/',
                                                     target_size=[224, 224],
                                                     batch_size=16,
                                                     class_mode='categorical')
