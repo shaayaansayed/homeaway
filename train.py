@@ -2,11 +2,11 @@ from keras.applications.vgg16 import VGG16
 from keras.models import Model
 from keras.layers import Dense
 from keras.optimizers import SGD
+import keras
 
 vgg16 = VGG16(weights='imagenet')
 fc2 = vgg16.get_layer('fc2').output
 prediction = Dense(units=6, activation='softmax', name='logit')(fc2)
-# model = Model(input=vgg16.input, output=prediction)
 model = Model(inputs=vgg16.input, outputs=prediction)
 
 for layer in model.layers:
@@ -43,8 +43,7 @@ def preprocess_input_vgg(x):
     X = preprocess_input(X)
     return X[0]
 
-train_datagen = ImageDataGenerator(preprocessing_function=preprocess_input_vgg,
-                                   rotation_range=40,
+train_datagen = ImageDataGenerator(rotation_range=40,
                                    width_shift_range=0.2,
                                    height_shift_range=0.2,
                                    shear_range=0.2,
@@ -54,16 +53,21 @@ train_datagen = ImageDataGenerator(preprocessing_function=preprocess_input_vgg,
 
 train_generator = train_datagen.flow_from_directory(directory='/scratch/cluster/vsub/ssayed/homeaway/data/train',
                                                     target_size=[224, 224],
-                                                    batch_size=64,
+                                                    batch_size=32,
                                                     class_mode='categorical')
 
-validation_datagen = ImageDataGenerator(preprocessing_function=preprocess_input_vgg)
+validation_datagen = ImageDataGenerator()
 
-validation_generator = validation_datagen.flow_from_directory(directory='/scratch/cluster/vsub/ssayed/homeaway/data/test',
+validation_generator = validation_datagen.flow_from_directory(directory='/scratch/cluster/vsub/ssayed/homeaway/data/val',
                                                               target_size=[224, 224],
-                                                              batch_size=64,
+                                                              batch_size=32,
                                                               class_mode='categorical')
-
+mc = keras.callbacks.ModelCheckpoint('/scratch/cluster/vsub/ssayed/model.hdf5', monitor='val_loss', verbose=0, save_best_only=False, save_weights_only=False, mode='auto', period=1)
+from PIL import ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 model.fit_generator(train_generator,
-                    steps_per_epoch=1000,
-                    nb_epoch=3)
+                    steps_per_epoch=7527/32,
+                    epochs=3,
+                    callbacks=[mc],
+                    validation_data=validation_generator,
+                    validation_steps=818/32)
