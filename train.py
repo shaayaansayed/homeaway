@@ -52,11 +52,18 @@ train_datagen = ImageDataGenerator(preprocessing_function=preprocess_input_vgg,
                                    horizontal_flip=True,
                                    fill_mode='nearest')
 
-train_generator = train_datagen.flow_from_directory(directory='/scratch/cluster/vsub/ssayed/data/',
+train_generator = train_datagen.flow_from_directory(directory='/scratch/cluster/vsub/ssayed/homeaway/data/train',
                                                     target_size=[224, 224],
-                                                    batch_size=16,
+                                                    batch_size=64,
                                                     class_mode='categorical')
 
+validation_datagen = ImageDataGenerator(preprocessing_function=preprocess_input_vgg)
+
+validation_generator = validation_datagen.flow_from_directory(directory='/scratch/cluster/vsub/ssayed/homeaway/data/test',
+                                                              target_size=[224, 224],
+                                                              batch_size=64,
+                                                              class_mode='categorical')
+
 model.fit_generator(train_generator,
-                    samples_per_epoch=16,
+                    steps_per_epoch=1000,
                     nb_epoch=3)
