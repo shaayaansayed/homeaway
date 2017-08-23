@@ -1,6 +1,6 @@
 # homeaway
 
-2nd Place at [InternHackAtx 2017]{https://internhackatx-homeaway.devpost.com/}
+2nd Place at [InternHackAtx 2017](https://internhackatx-homeaway.devpost.com/)
 
 Prompt: Minimize the time it takes for a customer to find and book a listing of their preference on the HomeAway website. 
 
