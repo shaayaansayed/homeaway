@@ -1,0 +1,265 @@
+{
+    "id": "29d6fd92-fd05-44b8-9b3e-3639c6b9ac2d",
+    "timestamp": "2017-07-16T00:17:15.789Z",
+    "lang": "en",
+    "result": {
+        "source": "agent",
+        "resolvedQuery": "Let's travel",
+        "action": "homie.booking",
+        "actionIncomplete": true,
+        "parameters": {
+            "endDate": "",
+            "location": {
+                "city": "Paris"
+            },
+            "startDate": ""
+        },
+        "contexts": [
+            {
+                "name": "homie_booking_dialog_params_startdate",
+                "parameters": {
+                    "location.original": "Paris",
+                    "endDate": "",
+                    "location": {
+                        "city.object": {},
+                        "city": "Paris",
+                        "city.original": "Paris"
+                    },
+                    "endDate.original": "",
+                    "startDate.original": "",
+                    "startDate": ""
+                },
+                "lifespan": 1
+            },
+            {
+                "name": "homie_booking_dialog_context",
+                "parameters": {
+                    "location.original": "Paris",
+                    "endDate": "",
+                    "location": {
+                        "city.object": {},
+                        "city": "Paris",
+                        "city.original": "Paris"
+                    },
+                    "endDate.original": "",
+                    "startDate.original": "",
+                    "startDate": ""
+                },
+                "lifespan": 2
+            },
+            {
+                "name": "booking",
+                "parameters": {
+                    "location.original": "Paris",
+                    "endDate": "",
+                    "location": {
+                        "city.object": {},
+                        "city": "Paris",
+                        "city.original": "Paris"
+                    },
+                    "endDate.original": "",
+                    "startDate.original": "",
+                    "startDate": ""
+                },
+                "lifespan": 5
+            },
+            {
+                "name": "76a86712-e54e-4497-b194-0c0d4463c1d8_id_dialog_context",
+                "parameters": {
+                    "location.original": "Paris",
+                    "endDate": "",
+                    "location": {
+                        "city.object": {},
+                        "city": "Paris",
+                        "city.original": "Paris"
+                    },
+                    "endDate.original": "",
+                    "startDate.original": "",
+                    "startDate": ""
+                },
+                "lifespan": 2
+            }
+        ],
+        "metadata": {
+            "intentId": "76a86712-e54e-4497-b194-0c0d4463c1d8",
+            "webhookUsed": "true",
+            "webhookForSlotFillingUsed": "true",
+            "intentName": "homie.booking"
+        },
+        "fulfillment": {
+            "speech": "When are you leaving?",
+            "messages": [
+                {
+                    "type": 0,
+                    "speech": "When are you leaving?"
+                }
+            ]
+        },
+        "score": 1
+    },
+    "status": {
+        "code": 206,
+        "errorType": "partial_content",
+        "errorDetails": "Webhook call failed. Error: Request timeout."
+    },
+    "sessionId": "homie_session"
+}
+
+
+{
+    "id": "b6581daf-9c3b-49e5-a65b-50490bc58cf1",
+    "timestamp": "2017-07-16T06:13:10.279Z",
+    "lang": "en",
+    "result": {
+        "source": "agent",
+        "resolvedQuery": "Hey homie, I want to go to Pigeon Ford, and I need to leave tomorrow.",
+        "action": "homie.booking",
+        "actionIncomplete": true,
+        "parameters": {
+            "endDate": "",
+            "location": {
+                "business-name": "Ford",
+                "city": "Pigeon"
+            },
+            "startDate": "2017-07-17"
+        },
+        "contexts": [
+            {
+                "name": "homie_booking_dialog_context",
+                "parameters": {
+                    "location.original": "Pigeon Ford",
+                    "endDate": "",
+                    "location": {
+                        "business-name": "Ford",
+                        "city": "Pigeon",
+                        "city.original": "Pigeon",
+                        "business-name.original": "Ford"
+                    },
+                    "endDate.original": "",
+                    "startDate.original": "tomorrow",
+                    "startDate": "2017-07-17"
+                },
+                "lifespan": 2
+            },
+            {
+                "name": "homie_booking_dialog_params_enddate",
+                "parameters": {
+                    "location.original": "Pigeon Ford",
+                    "endDate": "",
+                    "location": {
+                        "business-name": "Ford",
+                        "city": "Pigeon",
+                        "city.original": "Pigeon",
+                        "business-name.original": "Ford"
+                    },
+                    "endDate.original": "",
+                    "startDate.original": "tomorrow",
+                    "startDate": "2017-07-17"
+                },
+                "lifespan": 1
+            },
+            {
+                "name": "76a86712-e54e-4497-b194-0c0d4463c1d8_id_dialog_context",
+                "parameters": {
+                    "location.original": "Pigeon Ford",
+                    "endDate": "",
+                    "location": {
+                        "business-name": "Ford",
+                        "city": "Pigeon",
+                        "city.original": "Pigeon",
+                        "business-name.original": "Ford"
+                    },
+                    "endDate.original": "",
+                    "startDate.original": "tomorrow",
+                    "startDate": "2017-07-17"
+                },
+                "lifespan": 2
+            }
+        ],
+        "metadata": {
+            "intentId": "76a86712-e54e-4497-b194-0c0d4463c1d8",
+            "webhookUsed": "true",
+            "webhookForSlotFillingUsed": "true",
+            "intentName": "homie.booking"
+        },
+        "fulfillment": {
+            "speech": "When are you coming back?",
+            "messages": [
+                {
+                    "type": 0,
+                    "speech": "When are you coming back?"
+                }
+            ]
+        },
+        "score": 0.8299999833106995
+    },
+    "status": {
+        "code": 206,
+        "errorType": "partial_content",
+        "errorDetails": "Webhook call failed. Error: Request timeout."
+    },
+    "sessionId": "homie_session"
+}
+
+
+
+{
+    "id": "124319db-f9bc-484e-a59b-a9776c48b687",
+    "timestamp": "2017-07-16T06:22:59.634Z",
+    "lang": "en",
+    "result": {
+        "source": "agent",
+        "resolvedQuery": "Hey homie, I want to go to Pigeon Ford, and I need to leave tomorrow.",
+        "action": "homie.booking",
+        "actionIncomplete": false,
+        "parameters": {
+            "endDate": "",
+            "location": {
+                "business-name": "Ford",
+                "city": "Pigeon"
+            },
+            "startDate": "2017-07-17"
+        },
+        "contexts": [
+            {
+                "name": "question1",
+                "parameters": {
+                    "location.original": "Pigeon Ford",
+                    "endDate": "",
+                    "location": {
+                        "business-name": "Ford",
+                        "city": "Pigeon",
+                        "city.original": "Pigeon",
+                        "business-name.original": "Ford"
+                    },
+                    "endDate.original": "",
+                    "startDate.original": "tomorrow",
+                    "startDate": "2017-07-17"
+                },
+                "lifespan": 1
+            }
+        ],
+        "metadata": {
+            "intentId": "76a86712-e54e-4497-b194-0c0d4463c1d8",
+            "webhookUsed": "true",
+            "webhookForSlotFillingUsed": "true",
+            "intentName": "homie.booking"
+        },
+        "fulfillment": {
+            "speech": "Leaving so soon? When are you coming back and how many people are you bringing?",
+            "messages": [
+                {
+                    "type": 0,
+                    "speech": "Leaving so soon? When are you coming back and how many people are you bringing?"
+                }
+            ]
+        },
+        "score": 0.8299999833106995
+    },
+    "status": {
+        "code": 206,
+        "errorType": "partial_content",
+        "errorDetails": "Webhook call failed. Error: Request timeout."
+    },
+    "sessionId": "homie_session"
+}

@@ -1,0 +1,59 @@
+<html>
+    <head>
+    <title>Homie</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script   src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<link rel="stylesheet/less" type="text/css" href="https://e17d14e6.ngrok.io/static/less/datepicker.less" />
+    <link rel="stylesheet" href="https://e17d14e6.ngrok.io/static/css/datepicker.css" />
+    <script type="text/javascript" src="https://e17d14e6.ngrok.io/static/js/bootstrap-datepicker.js"></script>
+    </head>
+    <body>
+        <input class="inputDate" id="inputDate" value="07/16/2017" />
+        <button type="button" class="btn btn-primary" onclick="submitDate()">Primary</button>
+        <script>
+            (function(d, s, id){
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) {return;}
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+              fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'Messenger'));
+              window.extAsyncInit = function() {
+                // the Messenger Extensions JS SDK is done loading 
+                $('#inputDate').datepicker();
+              };
+            var homie_date = new Date();
+            function homieChange(ev){
+                homie_date = ev.date;
+            }
+            
+            function submitDate(){
+                console.log('date: ', homie_date);
+                $.ajax({
+                    url: 'https://api.api.ai/v1/query?v=20150910',
+                    type: 'POST',
+                    data: JSON.stringify({
+                        query: homie_date.toDateString(),
+                        event: {
+                            name: 'homie.booking',
+                            data: {
+                                startDate: homie_date.toDateString()
+                            }
+                        }
+                        sessionId: "homie_session",
+                        lang: 'en'
+                        
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    headers: {
+                        Authorization: "Bearer " + '4036d350690641c084c476af4bff024f'
+                    }
+                });
+            }
+        </script>
+        <h1>Hello World!</h1>
+    </body>
+</html>

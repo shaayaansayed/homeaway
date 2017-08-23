@@ -1,0 +1,23 @@
+{
+  "name": "homie",
+  "version": "1.0.0",
+  "description": "Intelligent chatbot for harmonizing with your travel preferences",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "travel",
+    "chatbot"
+  ],
+  "author": "Michail Shaposhnikov",
+  "license": "ISC",
+  "dependencies": {
+    "apiai": "^4.0.3",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  }
+}
